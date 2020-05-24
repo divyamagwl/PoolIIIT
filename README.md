@@ -2,17 +2,37 @@
 
 ### Installation
 
+Open two terminals in the main repo for backend and frontend.
+
+Terminal 1
+
+	cd backend
 	python3 -m venv venv
 	. venv/bin/activate
 	pip install -r requirements.txt
 
+Terminal 2
+	
+	npm install
+
 ### Run the application
+
+Terminal 1
 
 	python3 manage.py runserver
 
+Terminal 2
+	
+	npm start
+
 ## About the repo
 
-This is the backend of PoolIIIT (frontend will be added soon). Tech stack used is Django and Django REST API.
+This is the frontend and backend of PoolIIIT website.
+
+### Tech stack 
+
+	Backend 	: Django and Django REST API
+	Frontend	: React and Ant Design UI
 
 Features:
 ---------
@@ -41,24 +61,34 @@ Testing Users
 ii. User - Details
 Update user details/ Delete user.
 
-	Endpoint	: /users/<id>
-	Sample		: /users/1 (Admin Profile)
+	Endpoint	: /users/<username>
+	Sample		: /users/admin 
 
-iii. Booking
+iii. Update Password
+Reset Password of logged in user.
+
+	Endpoint	: /users/<username>/reset-password
+
+iv. Booking
 Create new bookings.
 
 	Endpoint	: /booking/
 
-iv. Booking - Details
+v. Booking - Details
 Update booking details/ Delete Booking.
 
 	Endpoint	: /booking/details/<id>
 
-v. Booking - Filtering
+vi. Booking - Filtering
 Displays all the bookings in the same time period as the created booking.
 
 	Endpoint	: /booking/<id>
- 
+
+vii. User - Bookings
+Displays all the bookings of a particular user.
+
+	Endpoint	: /user/<username>/booking
+
 ### Other Details
 
 Database used - Sqlite3
