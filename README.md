@@ -34,13 +34,13 @@ This is the frontend and backend of PoolIIIT website.
 	Backend 	: Django and Django REST API
 	Frontend	: React and Ant Design UI
 
-Features:
+### Features:
 ---------
 * User registration
 * Bookings
 * Filtering of overlapping bookings
 
-API Documentation:
+### API Documentation:
 -----------------
 
 i. User - Registration
@@ -51,10 +51,12 @@ Create/ Register a new user.
 For testing purposes there are 4 users and 1 admin
 
 Admin
+
 	Username	: admin
 	Password	: admin@1234
 
 Testing Users
+
 	Username	: TestUser1/TestUser2/TestUser3/TestUser4
 	Password 	: testing1234
 
