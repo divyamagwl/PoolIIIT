@@ -1,0 +1,9 @@
+asgiref==3.2.7 
+django==3.0.5 
+pytz==2020.1 
+sqlparse==0.3.1
+django-cleanup==4.0.0
+django-crispy-forms==1.9.0
+djangorestframework==3.11.0
+django-cors-headers==3.3.0
+django-rest-auth==0.9.5

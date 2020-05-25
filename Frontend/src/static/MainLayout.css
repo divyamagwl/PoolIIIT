@@ -1,0 +1,25 @@
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+    content: "PoolIIIT";
+}
+
+.logo h1 {
+    display: block;
+    font-size: 2em;
+    color: rgb(111, 250, 243);
+    text-align: center;
+    margin-top: -0.67em;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#Content {
+    min-height: 100%;
+}
+  
+.crumb {
+    margin: 16px;
+}
