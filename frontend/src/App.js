@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
-import BaseRouter from "./routes";
+import { BrowserRouter as Router } from 'react-router-dom';
+import BaseRouter from './routes';
 
 import './App.css';
 import 'antd/dist/antd.css';
 
 import MainLayout from './containers/MainLayout';
 import { connect } from 'react-redux';
-import * as actions from "./actions/auth";
-
+import * as actions from './actions/auth';
 
 class App extends Component {
   componentDidMount() {
@@ -20,19 +19,18 @@ class App extends Component {
       <div>
         <Router>
           <MainLayout {...this.props}>
-            <BaseRouter/>
+            <BaseRouter />
           </MainLayout>
         </Router>
       </div>
-    );  
+    );
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState())
-  }
-}
+    onTryAutoSignup: () => dispatch(actions.authCheckState()),
+  };
+};
 
 export default connect(null, mapDispatchToProps)(App);
