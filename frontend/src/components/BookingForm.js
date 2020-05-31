@@ -12,7 +12,7 @@ const config = {
       {
         type: 'object',
         required: true,
-        message: 'Please select time!',
+        message: 'This Field is Required!',
       },
     ],
 };  
