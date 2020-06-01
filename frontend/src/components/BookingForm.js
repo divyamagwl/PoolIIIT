@@ -28,8 +28,12 @@ class BookingForm extends Component {
     };
     
     onChange = time => {
-        this.setState({ value: time });
-    };
+        this.setState(prevState=>{
+            return{
+                 value: time
+            }
+        })
+    }
     
     onFinish = fieldsValue => {
         const values = {
