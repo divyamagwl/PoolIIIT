@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-//eslint-disable-next-line
 import { Layout, Menu, Breadcrumb, Affix } from 'antd';
 import { connect } from 'react-redux';
 
@@ -110,10 +109,7 @@ class MainLayout extends Component {
           </Affix>
 
           <div style={{ minHeight: '84vh', color: '#7acdff' }}>
-            <br />
-            <p style={{ textAlign: 'center', color: 'white' }}>
-              {this.props.children}
-            </p>
+            {this.props.children}
           </div>
         </div>
         <Footer
@@ -122,6 +118,7 @@ class MainLayout extends Component {
             fontSize: '20px',
             bottom: '0',
             position: 'relative',
+            backgroundColor: 'rgb(13, 28, 40)',
           }}
         >
           Made by Zense

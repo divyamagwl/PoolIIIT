@@ -41,17 +41,16 @@ class Booking extends Component {
     return (
       <div
         style={{
-          backgroundColor: '#ffffff',
-          opacity: '0.95',
-          display: 'inline-block',
-          paddingTop: '5px',
-          paddingBottom: '5px',
-          paddingRight: '5px',
-          height: '50%',
-          width: '60%',
+          width: '100%',
+          paddingRight: '15px',
+          paddingLeft: '15px',
+          marginTop: '30px',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+          boxSizing: 'border-box',
+          maxWidth: '1140px',
+          lineHeight: '1.5',
           textAlign: 'center',
-          color: 'black',
-          border: '2px solid #000000',
         }}
       >
         {this.state.loading ? (
