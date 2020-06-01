@@ -12,7 +12,7 @@ const config = {
       {
         type: 'object',
         required: true,
-        message: 'This Field is Required!',
+        message: 'Please select time!',
       },
     ],
 };  
@@ -28,12 +28,8 @@ class BookingForm extends Component {
     };
     
     onChange = time => {
-        this.setState(prevState=>{
-            return{
-                 value: time
-            }
-        })
-    }
+        this.setState({ value: time });
+    };
     
     onFinish = fieldsValue => {
         const values = {
