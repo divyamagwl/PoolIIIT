@@ -19,7 +19,6 @@ class EditProfile extends Component {
     axios
       .get(`${USERS_URL}/${uname}/`, getConfig())
       .then((res) => {
-        console.log(res);
         this.setState({
           user: res.data,
           loading: false,
