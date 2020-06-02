@@ -10,7 +10,7 @@ import { getConfig } from '../utils/getConfig';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import booking from '../booking.png';
 const { Column } = Table;
 
 class Booking extends Component {
@@ -84,6 +84,11 @@ class Booking extends Component {
             </Table>
           </div>
         )}
+        {/* <img
+          alt='User'
+          style={{ float: 'right', padding: '10px 10px 10px 10px' }}
+          src={booking}
+        /> */}
       </div>
     );
   }

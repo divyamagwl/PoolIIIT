@@ -88,7 +88,7 @@ class LoginForm extends Component {
               boxSizing: 'border-box',
             }}
           >
-            <div>{errorMessage}</div>
+            <div style={{ color: 'red' }}>{errorMessage}</div>
             <Form
               name='normal_login'
               className='login-form'
