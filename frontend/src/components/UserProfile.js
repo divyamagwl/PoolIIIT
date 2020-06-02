@@ -96,7 +96,7 @@ const Page = (data) => {
         }}
       >
         <h1 style={style}>
-          <b>{user.username}'s' Profile</b>
+          <b>{user.username}'s Profile</b>
         </h1>
         <h3>
           <b>Full Name</b>: {user.first_name + ' ' + user.last_name}{' '}
@@ -104,15 +104,15 @@ const Page = (data) => {
         <div style={{ display: 'inline-flex', textAlign: 'center' }}>
           <h3>
             <b>Email: </b>
+            <Paragraph copyable>{user.email}</Paragraph>
           </h3>{' '}
-          <Paragraph copyable>{user.email}</Paragraph>
         </div>
         <br></br>
         <div style={{ display: 'inline-flex', textAlign: 'center' }}>
           <h3>
             <b>Phone number:</b>
+            <Paragraph copyable>{user.phone}</Paragraph>
           </h3>
-          <Paragraph copyable>{user.phone}</Paragraph>
         </div>
       </div>
     </div>

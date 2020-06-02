@@ -19,6 +19,7 @@ class EditProfile extends Component {
     axios
       .get(`${USERS_URL}/${uname}/`, getConfig())
       .then((res) => {
+        console.log(res);
         this.setState({
           user: res.data,
           loading: false,
@@ -42,6 +43,7 @@ class EditProfile extends Component {
           first_name: values.first_name,
           last_name: values.last_name,
           email: values.email,
+          password: values.password,
           phone: values.phone,
         },
         getConfig()
@@ -62,95 +64,127 @@ class EditProfile extends Component {
       }
       return true;
     };
+    const br = { borderRadius: '7px', padding: '7px' };
     return (
       <div
         style={{
-          backgroundColor: '#ffffff',
-          opacity: '0.9',
-          width: '30%',
-          height: '60%',
-          display: 'inline-block',
-          paddingTop: '70px',
-          paddingBottom: '50px',
-          color: 'black',
-          border: '2px solid #000000',
+          width: '100%',
+          paddingRight: '15px',
+          paddingLeft: '15px',
+          marginTop: '40px',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+          boxSizing: 'border-box',
+          maxWidth: '1140px',
+          lineHeight: '1.5',
+          textAlign: 'center',
+          fontFamily: 'Comic Sans, Comic Sans MS, cursive',
         }}
       >
-        {this.state.loading ? (
-          <Loading />
-        ) : this.state.errorStatus ? (
-          <NotAuthorizedPage />
-        ) : notAuthorized() ? (
-          <NotAuthorizedPage />
-        ) : (
-          <Form
-            name='EditDetails'
-            layout='vertical'
-            initialValues={this.state.user}
-            onFinish={this.onFinish}
-          >
-            <Form.Item
-              name='first_name'
-              label='First name'
-              rules={[
-                {
-                  required: true,
-                  message: 'First name is required!',
-                },
-              ]}
+        <div
+          style={{
+            display: 'block',
+            border: '1px solid #eee',
+            boxShadow: '0 2px 2px #ccc',
+            padding: '20px 20px 20px 20px',
+            borderRadius: '7px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: '50%',
+          }}
+        >
+          {this.state.loading ? (
+            <Loading />
+          ) : this.state.errorStatus ? (
+            <NotAuthorizedPage />
+          ) : notAuthorized() ? (
+            <NotAuthorizedPage />
+          ) : (
+            <Form
+              name='EditDetails'
+              layout='vertical'
+              // initialValues={this.state.user}
+              onFinish={this.onFinish}
             >
-              <Input />
-            </Form.Item>
+              <Form.Item
+                name='first_name'
+                label='First name'
+                initialValue={this.state.user.first_name}
+                rules={[
+                  {
+                    required: true,
+                    message: 'First name is required!',
+                  },
+                ]}
+              >
+                <Input style={br} />
+              </Form.Item>
 
-            <Form.Item
-              name='last_name'
-              label='Last name'
-              rules={[
-                {
-                  required: true,
-                  message: 'Last name is required!',
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
+              <Form.Item
+                name='last_name'
+                label='Last name'
+                initialValue={this.state.user.last_name}
+                rules={[
+                  {
+                    required: true,
+                    message: 'Last name is required!',
+                  },
+                ]}
+              >
+                <Input style={br} />
+              </Form.Item>
 
-            <Form.Item
-              name='email'
-              label='Email'
-              rules={[
-                {
-                  type: 'email',
-                  message: 'The input is not valid E-mail!',
-                },
-                {
-                  required: true,
-                  message: 'Please input your E-mail!',
-                },
-              ]}
-              hasFeedback
-            >
-              <Input />
-            </Form.Item>
+              <Form.Item
+                name='email'
+                label='Email'
+                initialValue={this.state.user.email}
+                rules={[
+                  {
+                    type: 'email',
+                    message: 'The input is not valid E-mail!',
+                  },
+                  {
+                    required: true,
+                    message: 'Please input your E-mail!',
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input style={br} />
+              </Form.Item>
+              <Form.Item
+                name='password'
+                label='Password'
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your password!',
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input.Password />
+              </Form.Item>
+              <Form.Item
+                name='phone'
+                label='Phone number'
+                initialValue={this.state.user.phone}
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your phone number!',
+                  },
+                ]}
+              >
+                <Input style={br} />
+              </Form.Item>
 
-            <Form.Item
-              name='phone'
-              label='Phone number'
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your phone number!',
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-
-            <Button type='primary' htmlType='submit'>
-              Edit
-            </Button>
-          </Form>
-        )}
+              <Button type='primary' htmlType='submit'>
+                Edit
+              </Button>
+            </Form>
+          )}
+        </div>
       </div>
     );
   }

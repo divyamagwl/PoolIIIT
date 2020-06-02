@@ -100,7 +100,7 @@ class RegisterForm extends Component {
               boxSizing: 'border-box',
             }}
           >
-            <div>{errorMessage}</div>
+            <div style={{ color: 'red' }}>{errorMessage}</div>
             <Form name='register' onFinish={this.onFinish} scrollToFirstError>
               <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <Form.Item
