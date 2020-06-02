@@ -41,8 +41,6 @@ class EditProfile extends Component {
         {
           first_name: values.first_name,
           last_name: values.last_name,
-          email: values.email,
-          password: values.password,
           phone: values.phone,
         },
         getConfig()
@@ -133,37 +131,6 @@ class EditProfile extends Component {
                 <Input style={br} />
               </Form.Item>
 
-              <Form.Item
-                name='email'
-                label='Email'
-                initialValue={this.state.user.email}
-                rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
-                  {
-                    required: true,
-                    message: 'Please input your E-mail!',
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input style={br} />
-              </Form.Item>
-              <Form.Item
-                name='password'
-                label='Password'
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your password!',
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input.Password />
-              </Form.Item>
               <Form.Item
                 name='phone'
                 label='Phone number'
