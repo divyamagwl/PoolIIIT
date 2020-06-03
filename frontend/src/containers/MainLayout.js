@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Affix } from 'antd';
 import { connect } from 'react-redux';
 
+
+import './Navbar.css';
 import * as actions from '../actions/auth';
 import '../static/MainLayout.css';
 // import map from '../map.png';
@@ -53,27 +55,28 @@ const Location = withRouter((props) => {
       mode='horizontal'
       selectedKeys={[location.pathname]}
       style={{ lineHeight: '70px', textAlign: 'right' }}
+      className="hamburger"
     >
-      <Menu.Item key='/'>
+      <Menu.Item key='/' className="nav-links">
         <Link to='/'>Home</Link>
       </Menu.Item>
       {isAuthenticated
         ? [
-            <Menu.Item key='/booking'>
+            <Menu.Item key='/booking' className="nav-links">
               <Link to='/booking'>Bookings</Link>
             </Menu.Item>,
-            <Menu.Item key={'/users/' + username}>
+            <Menu.Item key={'/users/' + username}  className="nav-links">
               <Link to={'/users/' + username}>My Profile</Link>
             </Menu.Item>,
-            <Menu.Item key='/logout' onClick={logout}>
+            <Menu.Item key='/logout' onClick={logout}  className="nav-links">
               <Link to='/'>Logout</Link>
             </Menu.Item>,
           ]
         : [
-            <Menu.Item key='/login'>
-              <Link to='/login'>Login</Link>
+            <Menu.Item key='/login'  className="nav-links">
+              <Link to='/login' >Login</Link>
             </Menu.Item>,
-            <Menu.Item key='/register'>
+            <Menu.Item key='/register' >
               <Link to='/register'>Register</Link>
             </Menu.Item>,
           ]}
