@@ -5,10 +5,10 @@ import { Layout, Menu, Breadcrumb, Affix } from 'antd';
 import { connect } from 'react-redux';
 
 
-import './Navbar.css';
+import '../static/Navbar.css';
 import * as actions from '../actions/auth';
 import '../static/MainLayout.css';
-// import map from '../map.png';
+
 import '../App.css';
 import logo from '../logo.png';
 const { Header, Content, Footer } = Layout;
@@ -73,10 +73,10 @@ const Location = withRouter((props) => {
             </Menu.Item>,
           ]
         : [
-            <Menu.Item key='/login'  className="nav-links">
+            <Menu.Item key='/login' className="nav-links">
               <Link to='/login' >Login</Link>
             </Menu.Item>,
-            <Menu.Item key='/register' >
+            <Menu.Item key='/register' className="nav-links">
               <Link to='/register'>Register</Link>
             </Menu.Item>,
           ]}
