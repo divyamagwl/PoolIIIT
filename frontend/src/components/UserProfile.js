@@ -59,8 +59,11 @@ const Page = (data) => {
         <h3>
           <b>Phone number</b>: {user.phone}{' '}
         </h3>
-        <Button type='primary'>
+        <Button type='primary' style={{ margin: '5px' }}>
           <Link to={'/users/' + username + '/edit'}>Edit Profile</Link>
+        </Button>
+        <Button type='primary'>
+          <Link to={'/booking/' + username}>My Bookings</Link>
         </Button>
         <br />
       </div>
