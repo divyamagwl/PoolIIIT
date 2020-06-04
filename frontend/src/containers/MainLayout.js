@@ -10,42 +10,55 @@ import '../static/MainLayout.css';
 
 import '../App.css';
 import logo from '../logo.png';
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars,faHome,faSignInAlt,faUserPlus,faTicketAlt,faUsers,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+
 const { Header, Footer } = Layout;
 
 const Location = withRouter((props) => {
   const { location, logout, isAuthenticated, username } = props;
 
   return (
-    <Menu
+   <Menu
       theme='dark'
       mode='horizontal'
       selectedKeys={[location.pathname]}
-      style={{ lineHeight: '70px', textAlign: 'right' }}
-      className='hamburger'
+      style={{ lineHeight: '70px', textAlign: 'right'}}
+      className="hamburger"
     >
-      <Menu.Item key='/' className='nav-links'>
+      
+      <Menu.Item key='/' className="nav-links">
+      <FontAwesomeIcon icon={faHome}/>
         <Link to='/'>Home</Link>
       </Menu.Item>
       {isAuthenticated
         ? [
-            <Menu.Item key='/booking' className='nav-links'>
+            <Menu.Item key='/booking'  className="nav-links">
+              <FontAwesomeIcon icons={faTicketAlt}/>
               <Link to='/booking'>Bookings</Link>
             </Menu.Item>,
-            <Menu.Item key={'/users/' + username} className='nav-links'>
+            <Menu.Item key={'/users/' + username}  className="nav-links">
+              <FontAwesomeIcon icons={faUsers} />
               <Link to={'/users/' + username}>My Profile</Link>
             </Menu.Item>,
-            <Menu.Item key='/logout' onClick={logout} className='nav-links'>
+            <Menu.Item key='/logout' onClick={logout}  className="nav-links">
+              <FontAwesomeIcon icons={faSignInAlt}  />
               <Link to='/'>Logout</Link>
             </Menu.Item>,
           ]
         : [
-            <Menu.Item key='/login' className='nav-links'>
-              <Link to='/login'>Login</Link>
+            <Menu.Item key='/login' className="nav-links">
+              <FontAwesomeIcon icon={faSignInAlt}/>
+              <Link to='/login' >Login</Link>
             </Menu.Item>,
-            <Menu.Item key='/register' className='nav-links'>
+            <Menu.Item key='/register'  className="nav-links">
+              <FontAwesomeIcon icon={faUserPlus}/>
               <Link to='/register'>Register</Link>
             </Menu.Item>,
           ]}
+    
     </Menu>
   );
 });
