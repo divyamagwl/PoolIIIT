@@ -54,14 +54,9 @@
       height: 100vh;
       width: 100%;
       flex-direction: column;
-      clip-path: circle(500px at 80% 0%);
-      -webkit-clip-path: circle(500px at 90% -10%);
-      transition: all 1s ease-out;
       
     }
     .nav-links.open {
-      clip-path: circle(1000px at 90% -10%);
-      -webkit-clip-path: circle(1000px at 90% -10%);
       pointer-events: all;
     }
     
