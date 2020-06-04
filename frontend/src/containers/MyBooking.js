@@ -127,9 +127,9 @@ class MyBooking extends Component {
             <div style={style}>
               <h1 style={{ color: 'darkblue' }}>My Bookings</h1>
               {mybookings}
-            </div>
+            </div><br/>
             <div style={style}>
-              <h1 style={{ marginTop: '240px', color: 'darkblue' }}>
+              <h1 style={{ marginTop: '270px', color: 'darkblue' }}>
                 Bookings with similar timings
               </h1>
               {otherbookings}
