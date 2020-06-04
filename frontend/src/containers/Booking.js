@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Booking.css';
+import '../static/Booking.css';
 import AddBooking from '../components/AddBooking';
 import NotAuthorizedPage from '../components/NotAuthorizedPage';
 import Loading from '../components/Loading';

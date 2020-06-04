@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import { Layout, Menu, Breadcrumb, Affix } from 'antd';
+import { Layout, Menu, Affix } from 'antd';
 import { connect } from 'react-redux';
 
 import '../static/Navbar.css';
@@ -10,40 +10,7 @@ import '../static/MainLayout.css';
 
 import '../App.css';
 import logo from '../logo.png';
-const { Header, Content, Footer } = Layout;
-
-const breadcrumbNameMap = {
-  '/login': 'Login',
-  '/register': 'Register',
-  '/booking': 'Booking',
-  '/users': 'Users',
-};
-
-const BreadCrumbComponent = withRouter((props) => {
-  const { location } = props;
-  const pathSnippets = location.pathname.split('/').filter((i) => i);
-
-  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
-    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-    return (
-      <Breadcrumb.Item key={url}>
-        <Link to={url}>{breadcrumbNameMap[url]}</Link>
-      </Breadcrumb.Item>
-    );
-  });
-
-  const breadcrumbItems = [
-    <Breadcrumb.Item key='/'>
-      <Link to='/'>Home</Link>
-    </Breadcrumb.Item>,
-  ].concat(extraBreadcrumbItems);
-
-  return (
-    <div className='crumb'>
-      <Breadcrumb>{breadcrumbItems}</Breadcrumb>
-    </div>
-  );
-});
+const { Header, Footer } = Layout;
 
 const Location = withRouter((props) => {
   const { location, logout, isAuthenticated, username } = props;

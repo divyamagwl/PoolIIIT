@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table } from 'antd';
 import { getConfig } from '../utils/getConfig';
 import { Link } from 'react-router-dom';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import NotAuthorizedPage from '../components/NotAuthorizedPage';
-import Loading from '../components/Loading';
 import { connect } from 'react-redux';
-import './Booking.css';
-const { Column } = Table;
-
+import '../static/Booking.css';
 class MyBooking extends Component {
   state = {
     user: [],
