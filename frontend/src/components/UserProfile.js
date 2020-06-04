@@ -29,43 +29,73 @@ const Page = (data) => {
           width: '100%',
           paddingRight: '15px',
           paddingLeft: '15px',
-          marginTop: '30px',
+          marginTop: '25px',
           marginRight: 'auto',
           marginLeft: 'auto',
           boxSizing: 'border-box',
           maxWidth: '1140px',
           lineHeight: '1.5',
-          textAlign: 'center',
-          fontFamily: 'Comic Sans, Comic Sans MS, cursive',
+          textAlign: 'left',
         }}
       >
-        <img
-          alt='User'
-          style={{ padding: '10px 10px 10px 10px' }}
-          src={image}
-        />
-        <h1 style={style}>
-          <b>Your Profile</b>
-        </h1>
-        <h3>
-          <b>Name:</b> {user.first_name + ' ' + user.last_name}{' '}
-        </h3>
-        <h3>
-          <b>Email</b>: {user.email}{' '}
-        </h3>
-        <h3>
-          <b>Username</b>: {user.username}{' '}
-        </h3>
-        <h3>
-          <b>Phone number</b>: {user.phone}{' '}
-        </h3>
-        <Button type='primary' style={{ margin: '5px' }}>
-          <Link to={'/users/' + username + '/edit'}>Edit Profile</Link>
-        </Button>
-        <Button type='primary'>
-          <Link to={'/booking/' + username}>My Bookings</Link>
-        </Button>
-        <br />
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            marginRight: '-15px',
+            marginLeft: '-15px',
+          }}
+        >
+          <div
+            style={{
+              flex: '0 0 30%',
+              maxWidth: '30%',
+              boxSizing: 'border-box',
+              marginRight: '',
+              marginLeft: 'auto',
+              marginTop: '70px',
+              textAlign: 'center',
+              display: 'block !important',
+            }}
+          >
+            <img alt='user-theme' src={image} />
+          </div>
+          <div
+            style={{
+              flex: '0 0 50%',
+              maxWidth: '50%',
+              padding: '15px 5px 5px 5px',
+              marginTop: '70px',
+              marginRight: 'auto',
+              marginLeft: '5px',
+              boxSizing: 'border-box',
+              textAlign: 'center',
+            }}
+          >
+            <h1 style={style}>
+              <b>Your Profile</b>
+            </h1>
+            <h3>
+              <b>Name:</b> {user.first_name + ' ' + user.last_name}{' '}
+            </h3>
+            <h3>
+              <b>Email</b>: {user.email}{' '}
+            </h3>
+            <h3>
+              <b>Username</b>: {user.username}{' '}
+            </h3>
+            <h3>
+              <b>Phone number</b>: {user.phone}{' '}
+            </h3>
+            <Button type='primary' style={{ margin: '5px' }}>
+              <Link to={'/users/' + username + '/edit'}>Edit Profile</Link>
+            </Button>
+            <Button type='primary'>
+              <Link to={'/booking/' + username}>My Bookings</Link>
+            </Button>
+            <br />
+          </div>
+        </div>
       </div>
     );
   }
