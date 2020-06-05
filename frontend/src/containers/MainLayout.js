@@ -17,9 +17,6 @@ import '../App.css';
 import logo from '../logo.png';
 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars,faHome,faSignInAlt,faUserPlus,faTicketAlt,faUsers,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-
 const { Header, Footer } = Layout;
 
 const Location = withRouter((props) => {
@@ -108,7 +105,7 @@ class MainLayout extends Component {
               <div className="footer-section about">
                   <h1>
                     <FontAwesomeIcon icon={faPlaneDeparture} transform="shrink-3" />
-                    <span style={{color:'#046687',fontSize:'40px'}}> PooL</span><span style={{fontSize:'35px'}}>IIIT</span>
+                    <span style={{color:'#046687',fontSize:'40px'}}> Pool</span><span style={{fontSize:'35px'}}>IIIT</span>
                   </h1>
                   &nbsp;
                   <p style={{fontSize:'20px'}}>
