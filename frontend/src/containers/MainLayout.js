@@ -8,6 +8,11 @@ import '../static/Navbar.css';
 import * as actions from '../actions/auth';
 import '../static/MainLayout.css';
 
+import {FacebookFilled,GithubFilled,LinkedinFilled} from '@ant-design/icons'; 
+import './Footer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars,faHome,faSignInAlt,faUserPlus,faTicketAlt,faUsers,faSignOutAlt,faPlaneDeparture,faPhone,faEnvelope} from '@fortawesome/free-solid-svg-icons';
+
 import '../App.css';
 import logo from '../logo.png';
 
@@ -94,18 +99,81 @@ class MainLayout extends Component {
             {this.props.children}
           </div>
         </div>
-        <Footer
-          style={{
-            textAlign: 'center',
-            fontSize: '20px',
-            bottom: '0',
-            position: '-webkit-sticky',
-            backgroundColor: 'rgb(13, 28, 40)',
-          }}
-        >
-          Made by Zense
-        </Footer>
-      </div>
+      
+      {/*Footer*/}
+        <div className="footer">
+          <div className="footer-content">
+              {/*About*/}
+              
+              <div className="footer-section about">
+                  <h1>
+                    <FontAwesomeIcon icon={faPlaneDeparture} transform="shrink-3" />
+                    <span style={{color:'#046687',fontSize:'40px'}}> PooL</span><span style={{fontSize:'35px'}}>IIIT</span>
+                  </h1>
+                  &nbsp;
+                  <p style={{fontSize:'20px'}}>
+                    Now let's save money<br/> 
+                    and time.
+                  </p>
+                  <div className="contact">
+                    <span>&nbsp;<FontAwesomeIcon icon={faPhone}/>&nbsp; 123-456-789</span>
+                    <span>&nbsp;<FontAwesomeIcon icon={faEnvelope}/>&nbsp;zense@iiitb.org</span>
+                  </div>
+
+                  <div>
+                    &nbsp;
+                    <a href="#">
+                      <FacebookFilled style={{fontSize:40}}/>
+                    </a>
+                    &nbsp;
+                    <a href="https://github.com/zense">
+                        <GithubFilled  style={{fontSize:40,color:'#ffffff'}}/>
+                    </a>
+                    &nbsp;
+                    <a href="#">
+                        <LinkedinFilled  style={{fontSize:40}}/>
+                    </a>
+                  </div>
+              </div>
+            
+              {/*End of About*/}
+              {/*Links*/}
+             <div className="footer-section links">
+                  <br/><br/><br/> 
+                  
+                  <h2><span style={{color:'#046687',fontSize:'30px'}}>Quick</span> Links</h2>
+                  <br></br>
+                  <ul>
+                    <a href="#"><li>Events</li></a>
+                    <a href="#"><li>Terms and Conditions</li></a>
+                    <a href="https://github.com/divyamagwl/PoolIIIT"><li>Contribute</li></a>
+                  </ul>
+              </div>
+              {/*End of Links*/}
+              {/*Start of Contact*/}
+              <div className="footer-section contact-form">
+                <br/><br/><br/>
+                <h2><span style={{color:'#046687',fontSize:'30px'}}>Contact</span> Us</h2>
+                <br></br>
+                <form action="index.html" method="post">
+                      <input type="email" name="email" className="text-input contact-input" placeholder="Enter Your Email Address"></input>
+                      
+                      <textarea name="message" className="text-input contact-input" placeholder="Please leave us a Feedback"></textarea>
+                      <button type="submit" className="btn btn-big contact-btn">
+                       <FontAwesomeIcon icon={faEnvelope} />
+                        &nbsp;Send
+                      </button>
+                </form>
+              </div>
+              {/*End of Contact*/}
+          </div>
+          <div className="footer-bottom">
+               &copy;Designed by Zense| IIITB
+          </div>
+        </div>
+        
+        </div> 
+      
     );
   }
 }
