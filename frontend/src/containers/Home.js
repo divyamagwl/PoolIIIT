@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import map from '../map.png';
+
+import  ScrollToTopBtn from './ScrollToTop'; 
+
 class Home extends Component {
   render() {
     return (
@@ -44,6 +47,7 @@ class Home extends Component {
             </h1>
           </div>
         </div>
+      <ScrollToTopBtn />
       </div>
     );
   }
