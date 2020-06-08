@@ -31,7 +31,9 @@ import {
 import '../App.css';
 import logo from '../logo.png';
 
-const { Header, Footer } = Layout;
+import ScrollToTopBtn from './ScrollToTop'; 
+
+const { Header } = Layout;
 
 const Location = withRouter((props) => {
   const { location, logout, isAuthenticated, username } = props;
@@ -223,6 +225,7 @@ class MainLayout extends Component {
           </div>
           <div className='footer-bottom'>&copy;Designed by Zense| IIITB</div>
         </div>
+        <ScrollToTopBtn/>
       </div>
     );
   }
