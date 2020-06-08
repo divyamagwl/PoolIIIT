@@ -3,32 +3,29 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { Layout, Menu, Affix } from 'antd';
 import { connect } from 'react-redux';
+import * as actions from '../actions/auth';
 
 import '../static/Navbar.css';
-import * as actions from '../actions/auth';
 import '../static/MainLayout.css';
+import '../static/Footer.css';
 
 import {
   FacebookFilled,
   GithubFilled,
   LinkedinFilled,
 } from '@ant-design/icons';
-import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBars,
   faHome,
   faSignInAlt,
   faUserPlus,
   faTicketAlt,
   faUsers,
-  faSignOutAlt,
   faPlaneDeparture,
   faPhone,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 
-import '../App.css';
 import logo from '../logo.png';
 
 import ScrollToTopBtn from './ScrollToTop'; 

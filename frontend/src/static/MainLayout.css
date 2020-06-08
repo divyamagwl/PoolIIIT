@@ -23,3 +23,7 @@
 .crumb {
   margin: 16px;
 }
+
+.ba_img {
+  background-image: url(../map.png);
+}
