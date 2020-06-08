@@ -10,6 +10,8 @@ import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import  ScrollToTopBtn from './ScrollToTop'; 
+
 class Booking extends Component {
   state = {
     bookings: [],
@@ -90,6 +92,7 @@ class Booking extends Component {
             {bookings}
           </div>
         )}
+      <ScrollToTopBtn /> 
       </div>
     );
   }
