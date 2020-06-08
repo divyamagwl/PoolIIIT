@@ -5,6 +5,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import  ScrollToTopBtn from './ScrollToTop';   
 
 import * as actions from '../actions/auth';
 import { ErrorHandler } from '../utils/ErrorHandler';
@@ -156,6 +157,7 @@ class LoginForm extends Component {
             </Form>
           </div>
         </div>
+      <ScrollToTopBtn />
       </div>
     );
   }
