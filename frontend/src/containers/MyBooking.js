@@ -106,29 +106,17 @@ class MyBooking extends Component {
         </div>
       </div>
     );
-    const style = {
-      width: '100%',
-      paddingRight: '15px',
-      paddingLeft: '15px',
-      marginTop: '30px',
-      marginRight: 'auto',
-      marginLeft: 'auto',
-      boxSizing: 'border-box',
-      maxWidth: '1140px',
-      lineHeight: '1.5',
-      textAlign: 'center',
-    };
     return (
       <div>
         {!this.props.isAuthenticated ? (
           <NotAuthorizedPage />
         ) : (
           <div>
-            <div style={style}>
+            <div className='container'>
               <h1 style={{ color: 'darkblue' }}>My Bookings</h1>
               {mybookings}
-            </div><br/>
-            <div style={style}>
+              <br />
+
               <h1 style={{ marginTop: '270px', color: 'darkblue' }}>
                 Bookings with similar timings
               </h1>
