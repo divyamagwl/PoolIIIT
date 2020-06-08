@@ -63,20 +63,7 @@ class Booking extends Component {
       </div>
     );
     return (
-      <div
-        style={{
-          width: '100%',
-          paddingRight: '15px',
-          paddingLeft: '15px',
-          marginTop: '30px',
-          marginRight: 'auto',
-          marginLeft: 'auto',
-          boxSizing: 'border-box',
-          maxWidth: '1140px',
-          lineHeight: '1.5',
-          textAlign: 'center',
-        }}
-      >
+      <div className='container'>
         {this.state.loading ? (
           <Loading />
         ) : !this.props.isAuthenticated ? (
