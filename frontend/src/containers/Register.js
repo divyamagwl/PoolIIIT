@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/auth';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import img from '../airplane.png';
+import  ScrollToTopBtn from './ScrollToTop'; 
+
 class RegisterForm extends Component {
   onFinish = (values) => {
     this.props.onAuth(
@@ -261,6 +263,7 @@ class RegisterForm extends Component {
             </Form>
           </div>
         </div>
+       < ScrollToTopBtn/>
       </div>
     );
   }
