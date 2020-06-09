@@ -140,7 +140,7 @@ class MainLayout extends Component {
               </div>
               <div>
                 &nbsp;
-                <a href='#'>
+                <a href='/'>
                   <FacebookFilled style={{ fontSize: 40 }} />
                 </a>
                 &nbsp;
@@ -148,7 +148,7 @@ class MainLayout extends Component {
                   <GithubFilled style={{ fontSize: 40, color: '#ffffff' }} />
                 </a>
                 &nbsp;
-                <a href='#'>
+                <a href='/'>
                   <LinkedinFilled style={{ fontSize: 40 }} />
                 </a>
               </div>
@@ -169,10 +169,10 @@ class MainLayout extends Component {
               </h1>
               <br></br>
               <ul>
-                <a href='#'>
+                <a href='/'>
                   <li>Events</li>
                 </a>
-                <a href='#'>
+                <a href='/'>
                   <li>Terms and Conditions</li>
                 </a>
                 <a href='https://github.com/divyamagwl/PoolIIIT'>
