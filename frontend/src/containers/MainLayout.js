@@ -24,6 +24,7 @@ import {
   faPlaneDeparture,
   faPhone,
   faEnvelope,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../logo.png';
@@ -44,32 +45,26 @@ const Location = withRouter((props) => {
       className='hamburger'
     >
       <Menu.Item key='/' className='nav-links'>
-        <FontAwesomeIcon icon={faHome} />
-        <Link to='/'>Home</Link>
+         <Link to='/'> <FontAwesomeIcon icon={faHome} />Home</Link>
       </Menu.Item>
       {isAuthenticated
         ? [
             <Menu.Item key='/booking' className='nav-links'>
-              <FontAwesomeIcon icons={faTicketAlt} />
-              <Link to='/booking'>Bookings</Link>
+              <Link to='/booking'><FontAwesomeIcon icons={faTicketAlt} />Bookings</Link>
             </Menu.Item>,
             <Menu.Item key={'/users/' + username} className='nav-links'>
-              <FontAwesomeIcon icons={faUsers} />
-              <Link to={'/users/' + username}>My Profile</Link>
+              <Link to={'/users/' + username}><FontAwesomeIcon icons={faUsers} />My Profile</Link>
             </Menu.Item>,
             <Menu.Item key='/logout' onClick={logout} className='nav-links'>
-              <FontAwesomeIcon icons={faSignInAlt} />
-              <Link to='/'>Logout</Link>
+              <Link to='/'><FontAwesomeIcon icons={faSignOutAlt} />Logout</Link>
             </Menu.Item>,
           ]
         : [
             <Menu.Item key='/login' className='nav-links'>
-              <FontAwesomeIcon icon={faSignInAlt} />
-              <Link to='/login'>Login</Link>
+               <Link to='/login'><FontAwesomeIcon icon={faSignInAlt} />Login</Link>
             </Menu.Item>,
             <Menu.Item key='/register' className='nav-links'>
-              <FontAwesomeIcon icon={faUserPlus} />
-              <Link to='/register'>Register</Link>
+              <Link to='/register'><FontAwesomeIcon icon={faUserPlus} />Register</Link>
             </Menu.Item>,
           ]}
     </Menu>
