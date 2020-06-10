@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col, Button } from 'antd';
+import {Link} from 'react-router-dom';
 
 import pic1 from '../pic1.jpg';
 import pic2 from '../pic2.jpg';
@@ -34,13 +35,13 @@ class Home extends Component {
               { 
                 isAuthenticated
                 ? [
-                  <Button type="primary" href="./booking" size="large" style={{ fontSize: "1vw", whiteSpace: 'nowrap' }}><ScheduleOutlined />Bookings</Button>
-                ]
+                     <Button type="primary" size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><ScheduleOutlined /><Link to="/bookings"><span style={{color:"white"}}>Bookings</span></Link></Button>
+                  ]
                 : [
                   <div style={{ display: 'flex' }}>
-                    <Button type="primary" href="./login" size="large" style={{ fontSize: "1vw", whiteSpace: 'nowrap' }}><LoginOutlined />Login </Button>
+                    <Button type="primary"  size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><LoginOutlined /><Link to="/login"><span style={{color:"white"}}>Login</span></Link> </Button>
                     &nbsp;&nbsp;
-                    <Button type="primary" href="./register" size="large" style={{ fontSize: "1vw", whiteSpace: 'nowrap' }}><UserAddOutlined />Register</Button>
+                    <Button type="primary" href="./register" size="large"  style={{fontSize:"1vw",whiteSpace:'nowrap'}}><UserAddOutlined /><Link to="/register"><span style={{color:"white"}}>Register</span></Link></Button>
                   </div>
                 ]
               }
@@ -48,13 +49,13 @@ class Home extends Component {
           </Col>
 
           <Col span={8}>
-            <img alt='Pooling-image' style={{ paddingBottom: '10%', paddingLeft: "10%", paddingRight: '10%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "left" }} src={pic1} />
+            <img alt='Pooling' style={{ paddingBottom: '10%', paddingLeft: "10%", paddingRight: '10%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "left" }} src={pic1} />
           </Col>
         </Row>
 
         <Row style={{ paddingBottom: '1%', paddingLeft: "20%", paddingTop: '1%' }}>
           <Col span={4}>
-            <img alt='Pooling-image' style={{ paddingBottom: '10%', paddingLeft: "5%", paddingRight: '5%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "center" }} src={pic3} />
+            <img alt='Pooling' style={{ paddingBottom: '10%', paddingLeft: "5%", paddingRight: '5%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "center" }} src={pic3} />
 
           </Col>
           <Col span={15} style={{ borderRadius: "25px", backgroundColor: "#22247A", width: "100%", height: "10vw", whiteSpace: 'nowrap' }}>
@@ -103,7 +104,7 @@ class Home extends Component {
 
           </Col>
           <Col span={15}>
-            <img alt='Pooling-image' style={{ paddingBottom: '10%', paddingLeft: "10%", paddingRight: '10%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "center" }} src={pic2} />
+            <img alt='Pooling' style={{ paddingBottom: '10%', paddingLeft: "10%", paddingRight: '10%', paddingTop: '10%', width: '100%', height: 'auto', textAlign: "center" }} src={pic2} />
           </Col>
 
         </Row>
