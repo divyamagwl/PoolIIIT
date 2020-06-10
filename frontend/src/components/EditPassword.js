@@ -69,7 +69,9 @@ class EditPassword extends Component {
     return (
       <div>
         {
-          this.state.errorStatus ? (
+          this.state.loading ? (
+            <Loading />
+          ) : this.state.errorStatus ? (
             <NotAuthorizedPage />
           ) : notAuthorized() ? (
             <NotAuthorizedPage />
@@ -101,83 +103,79 @@ class EditPassword extends Component {
                   maxWidth: '50%',
                 }}
               >
-                {this.state.loading ? (
-                  <Loading />
-                ) : (
-                    <div>
-                      <div style={{ color: 'red' }}>{this.state.message}</div>
-                      <Form
-                        name='EditPassword'
-                        layout='vertical'
-                        onFinish={this.onFinish}
-                      >
-                        <Form.Item
-                          name='current_password'
-                          label='Current Password'
-                          rules={[
-                            {
-                              required: true,
-                              message: 'Please input your current password!',
-                            },
-                          ]}
-                          hasFeedback
-                        >
-                          <Input.Password
-                            style={{ borderRadius: '7px' }}
-                            type='password'
-                          />
-                        </Form.Item>
-                        <Form.Item
-                          name='password'
-                          label='New Password'
-                          rules={[
-                            {
-                              required: true,
-                              message: 'Please input your current password!',
-                            },
-                          ]}
-                          hasFeedback
-                        >
-                          <Input.Password
-                            style={{ borderRadius: '7px' }}
-                            type='password'
-                          />
-                        </Form.Item>
+                <div>
+                  <div style={{ color: 'red' }}>{this.state.message}</div>
+                  <Form
+                    name='EditPassword'
+                    layout='vertical'
+                    onFinish={this.onFinish}
+                  >
+                    <Form.Item
+                      name='current_password'
+                      label='Current Password'
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Please input your current password!',
+                        },
+                      ]}
+                      hasFeedback
+                    >
+                      <Input.Password
+                        style={{ borderRadius: '7px' }}
+                        type='password'
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name='password'
+                      label='New Password'
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Please input your current password!',
+                        },
+                      ]}
+                      hasFeedback
+                    >
+                      <Input.Password
+                        style={{ borderRadius: '7px' }}
+                        type='password'
+                      />
+                    </Form.Item>
 
-                        <Form.Item
-                          name='confirm'
-                          label='Confirm Password'
-                          dependencies={['password']}
-                          hasFeedback
-                          rules={[
-                            {
-                              required: true,
-                              message: 'Please confirm your password!',
-                            },
-                            ({ getFieldValue }) => ({
-                              validator(rule, value) {
-                                if (!value || getFieldValue('password') === value) {
-                                  return Promise.resolve();
-                                }
-                                return Promise.reject(
-                                  'The two passwords that you entered do not match!'
-                                );
-                              },
-                            }),
-                          ]}
-                        >
-                          <Input.Password
-                            style={{ borderRadius: '7px' }}
-                            type='password'
-                          />
-                        </Form.Item>
+                    <Form.Item
+                      name='confirm'
+                      label='Confirm Password'
+                      dependencies={['password']}
+                      hasFeedback
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Please confirm your password!',
+                        },
+                        ({ getFieldValue }) => ({
+                          validator(rule, value) {
+                            if (!value || getFieldValue('password') === value) {
+                              return Promise.resolve();
+                            }
+                            return Promise.reject(
+                              'The two passwords that you entered do not match!'
+                            );
+                          },
+                        }),
+                      ]}
+                    >
+                      <Input.Password
+                        style={{ borderRadius: '7px' }}
+                        type='password'
+                      />
+                    </Form.Item>
 
-                        <Button type='primary' htmlType='submit'>
-                          Edit
-                        </Button>
-                      </Form>
-                    </div>
-                  )}
+                    <Button type='primary' htmlType='submit'>
+                      Edit
+                    </Button>
+                  </Form>
+                </div>
               </div>
             </div>
           )
