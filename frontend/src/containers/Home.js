@@ -35,13 +35,19 @@ class Home extends Component {
               { 
                 isAuthenticated
                 ? [
-                     <Button type="primary" size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><ScheduleOutlined /><Link to="/bookings"><span style={{color:"white"}}>Bookings</span></Link></Button>
+                    <Link to="/booking">
+                      <Button type="primary" size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><ScheduleOutlined />Bookings</Button>
+                    </Link>
                   ]
                 : [
                   <div style={{ display: 'flex' }}>
-                    <Button type="primary"  size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><LoginOutlined /><Link to="/login"><span style={{color:"white"}}>Login</span></Link> </Button>
+                    <Link to="/login">
+                      <Button type="primary" size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><LoginOutlined />Login</Button>
+                    </Link>                  
                     &nbsp;&nbsp;
-                    <Button type="primary" href="./register" size="large"  style={{fontSize:"1vw",whiteSpace:'nowrap'}}><UserAddOutlined /><Link to="/register"><span style={{color:"white"}}>Register</span></Link></Button>
+                    <Link to="/register">
+                      <Button type="primary" size="large" style={{fontSize:"1vw",whiteSpace:'nowrap'}}><UserAddOutlined />Register</Button>
+                    </Link>
                   </div>
                 ]
               }

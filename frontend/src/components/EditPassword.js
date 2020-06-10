@@ -6,6 +6,7 @@ import Loading from './Loading';
 import { USERS_URL } from '../api/constants';
 import NotAuthorizedPage from './NotAuthorizedPage';
 import { connect } from 'react-redux';
+
 class EditPassword extends Component {
   state = {
     user: [],
@@ -103,7 +104,7 @@ class EditPassword extends Component {
             <div>
               <div style={{ color: 'red' }}>{this.state.message}</div>
               <Form
-                name='EditDetails'
+                name='EditPassword'
                 layout='vertical'
                 onFinish={this.onFinish}
               >
@@ -121,7 +122,6 @@ class EditPassword extends Component {
                   <Input.Password
                     style={{ borderRadius: '7px' }}
                     type='password'
-                    placeholder='Password'
                   />
                 </Form.Item>
                 <Form.Item
@@ -138,7 +138,6 @@ class EditPassword extends Component {
                   <Input.Password
                     style={{ borderRadius: '7px' }}
                     type='password'
-                    placeholder='Password'
                   />
                 </Form.Item>
 
@@ -167,7 +166,6 @@ class EditPassword extends Component {
                   <Input.Password
                     style={{ borderRadius: '7px' }}
                     type='password'
-                    placeholder='Confirm Password'
                   />
                 </Form.Item>
 
