@@ -61,96 +61,103 @@ class EditProfile extends Component {
       }
       return true;
     };
+
     const br = { borderRadius: '7px', padding: '7px' };
+
     return (
-      <div
-        style={{
-          width: '100%',
-          paddingRight: '15px',
-          paddingLeft: '15px',
-          marginTop: '40px',
-          marginRight: 'auto',
-          marginLeft: 'auto',
-          boxSizing: 'border-box',
-          maxWidth: '1140px',
-          lineHeight: '1.5',
-          textAlign: 'center',
-          fontFamily: 'Comic Sans, Comic Sans MS, cursive',
-        }}
-      >
-        <div
-          style={{
-            display: 'block',
-            border: '1px solid #eee',
-            boxShadow: '0 2px 2px #ccc',
-            padding: '20px 20px 20px 20px',
-            borderRadius: '7px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            maxWidth: '50%',
-          }}
-        >
-          {this.state.loading ? (
-            <Loading />
-          ) : this.state.errorStatus ? (
+      <div>
+        {
+          this.state.errorStatus ? (
             <NotAuthorizedPage />
           ) : notAuthorized() ? (
             <NotAuthorizedPage />
           ) : (
-            <Form
-              name='EditDetails'
-              layout='vertical'
-              // initialValues={this.state.user}
-              onFinish={this.onFinish}
+            <div
+              style={{
+                width: '100%',
+                paddingRight: '15px',
+                paddingLeft: '15px',
+                marginTop: '40px',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+                boxSizing: 'border-box',
+                maxWidth: '1140px',
+                lineHeight: '1.5',
+                textAlign: 'center',
+                fontFamily: 'Comic Sans, Comic Sans MS, cursive',
+              }}
             >
-              <Form.Item
-                name='first_name'
-                label='First name'
-                initialValue={this.state.user.first_name}
-                rules={[
-                  {
-                    required: true,
-                    message: 'First name is required!',
-                  },
-                ]}
+              <div
+                style={{
+                  display: 'block',
+                  border: '1px solid #eee',
+                  boxShadow: '0 2px 2px #ccc',
+                  padding: '20px 20px 20px 20px',
+                  borderRadius: '7px',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  maxWidth: '50%',
+                }}
               >
-                <Input style={br} />
-              </Form.Item>
+                {this.state.loading ? (
+                  <Loading />
+                ) : (
+                    <Form
+                      name='EditDetails'
+                      layout='vertical'
+                      onFinish={this.onFinish}
+                    >
+                      <Form.Item
+                        name='first_name'
+                        label='First name'
+                        initialValue={this.state.user.first_name}
+                        rules={[
+                          {
+                            required: true,
+                            message: 'First name is required!',
+                          },
+                        ]}
+                      >
+                        <Input style={br} />
+                      </Form.Item>
 
-              <Form.Item
-                name='last_name'
-                label='Last name'
-                initialValue={this.state.user.last_name}
-                rules={[
-                  {
-                    required: true,
-                    message: 'Last name is required!',
-                  },
-                ]}
-              >
-                <Input style={br} />
-              </Form.Item>
+                      <Form.Item
+                        name='last_name'
+                        label='Last name'
+                        initialValue={this.state.user.last_name}
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Last name is required!',
+                          },
+                        ]}
+                      >
+                        <Input style={br} />
+                      </Form.Item>
 
-              <Form.Item
-                name='phone'
-                label='Phone number'
-                initialValue={this.state.user.phone}
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your phone number!',
-                  },
-                ]}
-              >
-                <Input style={br} />
-              </Form.Item>
+                      <Form.Item
+                        name='phone'
+                        label='Phone number'
+                        initialValue={this.state.user.phone}
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please input your phone number!',
+                          },
+                        ]}
+                      >
+                        <Input style={br} />
+                      </Form.Item>
 
-              <Button type='primary' htmlType='submit'>
-                Edit
-              </Button>
-            </Form>
-          )}
-        </div>
+                      <Button type='primary' htmlType='submit'>
+                        Edit
+                      </Button>
+                    </Form>
+                  )}
+              </div>
+            </div>
+          )
+        }
       </div>
     );
   }
