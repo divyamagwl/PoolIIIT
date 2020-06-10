@@ -8,6 +8,7 @@ import Home from './containers/Home';
 import UserProfile from './components/UserProfile';
 import NotFoundPage from './components/NotFoundPage';
 import EditProfile from './components/EditProfile';
+import EditPassword from './components/EditPassword';
 import MyBooking from './containers/MyBooking';
 
 const BaseRouter = () => (
@@ -19,6 +20,11 @@ const BaseRouter = () => (
       <Route exact path='/booking/' component={Booking} />
       <Route exact path='/users/:uname' component={UserProfile} />
       <Route exact path='/users/:uname/edit' component={EditProfile} />
+      <Route
+        exact
+        path='/users/:uname/reset-password'
+        component={EditPassword}
+      />
       <Route exact path='/logout' component={Home} />
       <Route exact path='/booking/:uname' component={MyBooking} />
       <Route component={NotFoundPage} />
