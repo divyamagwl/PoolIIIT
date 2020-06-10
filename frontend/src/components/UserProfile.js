@@ -90,6 +90,11 @@ const Page = (data) => {
             <Button type='primary' style={{ margin: '5px' }}>
               <Link to={'/users/' + username + '/edit'}>Edit Profile</Link>
             </Button>
+            <Button type='primary' style={{ margin: '5px' }}>
+              <Link to={'/users/' + username + '/reset-password'}>
+                Edit Password
+              </Link>
+            </Button>
             <Button type='primary'>
               <Link to={'/booking/' + username}>My Bookings</Link>
             </Button>
