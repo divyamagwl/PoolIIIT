@@ -19,6 +19,7 @@ import {
 import ScrollToTopBtn from './ScrollToTop';
 
 class Home extends Component {
+
   render() {
     const { isAuthenticated } = this.props;
     return (
@@ -68,7 +69,7 @@ class Home extends Component {
                         </Button>
                       </Link>
                       , &nbsp;&nbsp;
-                      <Link to={'/booking/'}>
+                      <Link to={'/booking/'+this.props.username}>
                         <Button
                           type='primary'
                           size='large'
