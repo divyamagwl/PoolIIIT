@@ -36,7 +36,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ('id', 'url', 'first_name', 'last_name', 'username',
                   'email', 'password', 'phone')
-        read_only_fields = ('username','password')
+        read_only_fields = ('username','password', 'email')
     
     #Build URL for User instance
     def make_user_url(self, obj):

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
 import axios from 'axios';
-
+import '../static/Booking.css';
 import AddBooking from '../components/AddBooking';
 import NotAuthorizedPage from '../components/NotAuthorizedPage';
 import Loading from '../components/Loading';
@@ -10,8 +9,6 @@ import { getConfig } from '../utils/getConfig';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-const { Column } = Table;
 
 class Booking extends Component {
   state = {
@@ -38,22 +35,35 @@ class Booking extends Component {
   }
 
   render() {
+    let bookings = null;
+    const arr = this.state.bookings;
+    bookings = (
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ textAlign: 'left', color: 'darkblue' }}>All Bookings</h1>
+        <div className='row'>
+          {arr.map((booking) => {
+            return (
+              <div className='column'>
+                <div className='card'>
+                  <h3>
+                    <Link to={'/users/' + booking.user}>{booking.user}</Link>
+                  </h3>
+                  <h4 style={{ color: 'darkblue' }}>
+                    <b>Date: </b>
+                    {booking.date}
+                  </h4>
+                  <h4 style={{ color: 'darkblue' }}>
+                    <b>Time: </b> {booking.time}
+                  </h4>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
     return (
-      <div
-        style={{
-          backgroundColor: '#ffffff',
-          opacity: '0.95',
-          display: 'inline-block',
-          paddingTop: '5px',
-          paddingBottom: '5px',
-          paddingRight: '5px',
-          height: '50%',
-          width: '60%',
-          textAlign: 'center',
-          color: 'black',
-          border: '2px solid #000000',
-        }}
-      >
+      <div className='container'>
         {this.state.loading ? (
           <Loading />
         ) : !this.props.isAuthenticated ? (
@@ -63,26 +73,8 @@ class Booking extends Component {
             <h1 style={{ color: 'red' }}>{this.state.error}</h1>
             <AddBooking />
             <div style={{ marginBottom: '15px' }}></div>
-            <Table dataSource={this.state.bookings} rowKey='id'>
-              <Column
-                title='User'
-                dataIndex='user'
-                key='user'
-                render={(text) => <Link to={'users/' + text}>{text}</Link>}
-              />
-              <Column title='Date' dataIndex='date' key='date' />
-              <Column title='Time' dataIndex='time' key='time' />
-              <Column
-                title='Flexibility Before'
-                dataIndex='flexibility_before'
-                key='flexibility_before'
-              />
-              <Column
-                title='Flexibility After'
-                dataIndex='flexibility_after'
-                key='flexibility_after'
-              />
-            </Table>
+            {console.log(this.state.bookings)}
+            {bookings}
           </div>
         )}
       </div>
