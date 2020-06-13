@@ -19,8 +19,8 @@ import {
   faHome,
   faSignInAlt,
   faUserPlus,
-  faTicketAlt,
   faUsers,
+  faTicketAlt,
   faPlaneDeparture,
   faPhone,
   faEnvelope,
@@ -50,13 +50,13 @@ const Location = withRouter((props) => {
       {isAuthenticated
         ? [
             <Menu.Item key='/booking' className='nav-links'>
-              <Link to='/booking'><FontAwesomeIcon icons={faTicketAlt} />Bookings</Link>
+              <Link to='/booking'> <FontAwesomeIcon icon={faTicketAlt} />Bookings</Link>
             </Menu.Item>,
             <Menu.Item key={'/users/' + username} className='nav-links'>
-              <Link to={'/users/' + username}><FontAwesomeIcon icons={faUsers} />My Profile</Link>
+              <Link to={'/users/' + username}><FontAwesomeIcon icon={faUsers} />My Profile</Link>
             </Menu.Item>,
             <Menu.Item key='/logout' onClick={logout} className='nav-links'>
-              <Link to='/'><FontAwesomeIcon icons={faSignOutAlt} />Logout</Link>
+              <Link to='/'><FontAwesomeIcon icon={faSignOutAlt} />Logout</Link>
             </Menu.Item>,
           ]
         : [
