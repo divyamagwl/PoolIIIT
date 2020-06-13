@@ -9,7 +9,7 @@ import { getConfig } from '../utils/getConfig';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { Row, Col } from 'antd';
 class Booking extends Component {
   state = {
     bookings: [],
@@ -38,12 +38,11 @@ class Booking extends Component {
     let bookings = null;
     const arr = this.state.bookings;
     bookings = (
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ textAlign: 'left', color: 'darkblue' }}>All Bookings</h1>
-        <div className='row'>
+      <div>
+        <Row>
           {arr.map((booking) => {
             return (
-              <div className='column'>
+              <Col style={{ padding: '25px 25px 25px 25px' }}>
                 <div className='card'>
                   <h3>
                     <Link to={'/users/' + booking.user}>{booking.user}</Link>
@@ -56,25 +55,34 @@ class Booking extends Component {
                     <b>Time: </b> {booking.time}
                   </h4>
                 </div>
-              </div>
+              </Col>
             );
           })}
-        </div>
+        </Row>
       </div>
     );
     return (
-      <div className='container'>
+      <div>
         {this.state.loading ? (
           <Loading />
         ) : !this.props.isAuthenticated ? (
           <NotAuthorizedPage />
         ) : (
           <div>
-            <h1 style={{ color: 'red' }}>{this.state.error}</h1>
-            <AddBooking />
-            <div style={{ marginBottom: '15px' }}></div>
-            {console.log(this.state.bookings)}
-            {bookings}
+            <div style={{ textAlign: 'center', marginTop: '40px' }}>
+              <h1 style={{ color: 'red' }}>{this.state.error}</h1>
+              <AddBooking />
+              <h1
+                style={{
+                  textAlign: 'center',
+                  color: 'darkblue',
+                  marginTop: '25px',
+                }}
+              >
+                All Bookings
+              </h1>
+            </div>
+            <div className='container'>{bookings}</div>
           </div>
         )}
       </div>
