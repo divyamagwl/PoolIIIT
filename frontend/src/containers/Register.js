@@ -75,7 +75,7 @@ class RegisterForm extends Component {
               display: 'block !important',
             }}
           >
-            <img alt='register-theme' src={img} style={{width:"100%",height:"auto"}} />
+            <img alt='register-theme' src={img} style={{width:"50%",height:"auto"}} />
             <h2
               style={{
                 marginTop: '30px',
@@ -253,7 +253,7 @@ class RegisterForm extends Component {
                   Register
                 </Button>
                 Already have an account?
-                <NavLink style={{ marginLeft: '5px' }} to='/login/'>
+                <NavLink style={{ marginLeft: '5px' }} to='/login'>
                   {' '}
                   Login
                 </NavLink>

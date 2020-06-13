@@ -63,7 +63,7 @@ class LoginForm extends Component {
               display: 'block !important',
             }}
           >
-            <img alt='register-theme' src={img} style={{width:'100%',height:"auto"}}/>
+            <img alt='login-theme' src={img} style={{width:'50%', height:"auto"}}/>
             <h2
               style={{
                 marginTop: '30px',
@@ -148,7 +148,7 @@ class LoginForm extends Component {
                   Log in
                 </Button>
                 New User?
-                <NavLink style={{ marginLeft: '5px' }} to='/register/'>
+                <NavLink style={{ marginLeft: '5px' }} to='/register'>
                   {' '}
                   Register here{' '}
                 </NavLink>
