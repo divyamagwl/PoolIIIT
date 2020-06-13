@@ -35,16 +35,12 @@ class BookingForm extends Component {
         const values = {
             ...fieldsValue,
             'date': fieldsValue['date'].format('YYYY-MM-DD'),
-            'time': fieldsValue['time'].format('hh:mm a'),
-            'flexibility_before': fieldsValue['flexibility-before'].format('HH:mm'),
-            'flexibility_after': fieldsValue['flexibility-after'].format('HH:mm'),
+            'time': fieldsValue['time'].format('hh:mm a')
         };
 
         axios.post(BOOKING_URL, {
             date: values.date,
             time: values.time,
-            flexibility_before: values.flexibility_before,
-            flexibility_after: values.flexibility_after
         }, getConfig())
             .then(res => console.log(res))
             .catch(err => console.log(ErrorHandler(err)));
@@ -62,14 +58,6 @@ class BookingForm extends Component {
                 </Form.Item>
 
                 <Form.Item name="time" label="Time"  {...config}>
-                    <TimePicker format="HH:mm" minuteStep={15} value={this.state.value} onChange={this.onChange}/>
-                </Form.Item>
-
-                <Form.Item name="flexibility-before" label="Flexibility Before" {...config}>
-                    <TimePicker format="HH:mm" minuteStep={15} value={this.state.value} onChange={this.onChange}/>
-                </Form.Item>
-
-                <Form.Item name="flexibility-after" label="Flexibility After" {...config}>
                     <TimePicker format="HH:mm" minuteStep={15} value={this.state.value} onChange={this.onChange}/>
                 </Form.Item>
 
