@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import NotAuthorizedPage from '../components/NotAuthorizedPage';
 import { connect } from 'react-redux';
+import { Row, Col } from 'antd';
 import '../static/Booking.css';
 class MyBooking extends Component {
   state = {
@@ -57,11 +58,11 @@ class MyBooking extends Component {
     let mybookings = null;
     const arr = this.state.user;
     mybookings = (
-      <div style={{ textAlign: 'center' }}>
-        <div className='row'>
+      <div>
+        <Row>
           {arr.map((booking) => {
             return (
-              <div className='column'>
+              <Col style={{ padding: '25px 25px 25px 25px' }}>
                 <div className='card'>
                   <h3>
                     <Link to={'/users/' + booking.user}>{booking.user}</Link>
@@ -74,20 +75,20 @@ class MyBooking extends Component {
                     <b>Time: </b> {booking.time}
                   </h4>
                 </div>
-              </div>
+              </Col>
             );
           })}
-        </div>
+        </Row>
       </div>
     );
     let otherbookings = null;
     const otherarr = this.state.children;
     otherbookings = (
-      <div style={{ textAlign: 'center' }}>
-        <div className='row'>
+      <div>
+        <Row>
           {otherarr.map((booking) => {
             return (
-              <div className='column'>
+              <Col style={{ padding: '25px 25px 25px 25px' }}>
                 <div className='card'>
                   <h3>
                     <Link to={'/users/' + booking.user}>{booking.user}</Link>
@@ -100,10 +101,10 @@ class MyBooking extends Component {
                     <b>Time: </b> {booking.time}
                   </h4>
                 </div>
-              </div>
+              </Col>
             );
           })}
-        </div>
+        </Row>
       </div>
     );
     return (
@@ -112,16 +113,24 @@ class MyBooking extends Component {
           <NotAuthorizedPage />
         ) : (
           <div>
-            <div className='container'>
-              <h1 style={{ color: 'darkblue' }}>My Bookings</h1>
-              {mybookings}
-              <br />
+            <h1 style={{ color: 'red', textAlign: 'center' }}>
+              {this.state.error}
+            </h1>
+            <h1
+              style={{
+                textAlign: 'center',
+                color: 'darkblue',
+                marginTop: '25px',
+              }}
+            >
+              My Bookings
+            </h1>
+            <div className='container'>{mybookings}</div>
 
-              <h1 style={{ marginTop: '270px', color: 'darkblue' }}>
-                Bookings with similar timings
-              </h1>
-              {otherbookings}
-            </div>
+            <h1 style={{ color: 'darkblue', textAlign: 'center' }}>
+              Bookings with similar timings
+            </h1>
+            <div className='container'>{otherbookings}</div>
           </div>
         )}
       </div>
