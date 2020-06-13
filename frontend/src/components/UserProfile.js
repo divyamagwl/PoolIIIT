@@ -58,7 +58,7 @@ const Page = (data) => {
               display: 'block !important',
             }}
           >
-            <img alt='user-theme' src={image} />
+            <img alt='user-theme' src={image} style={{width:"100%",height:"auto"}}/>
           </div>
           <div
             style={{
