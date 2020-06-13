@@ -75,7 +75,7 @@ class RegisterForm extends Component {
               display: 'block !important',
             }}
           >
-            <img alt='register-theme' src={img} />
+            <img alt='register-theme' src={img} style={{width:"100%",height:"auto"}} />
             <h2
               style={{
                 marginTop: '30px',
