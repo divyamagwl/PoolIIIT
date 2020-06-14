@@ -74,6 +74,9 @@ class MyBooking extends Component {
                   <h4 style={{ color: 'darkblue' }}>
                     <b>Time: </b> {booking.time}
                   </h4>
+                  <h4 style={{ color: 'darkblue' }}>
+                    <b>Location: </b> {booking.location}
+                  </h4>
                 </div>
               </Col>
             );
@@ -99,6 +102,9 @@ class MyBooking extends Component {
                   </h4>
                   <h4 style={{ color: 'darkblue' }}>
                     <b>Time: </b> {booking.time}
+                  </h4>
+                  <h4 style={{ color: 'darkblue' }}>
+                    <b>Location: </b> {booking.location}
                   </h4>
                 </div>
               </Col>

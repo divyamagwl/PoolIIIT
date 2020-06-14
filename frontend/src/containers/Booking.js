@@ -10,6 +10,7 @@ import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'antd';
+
 class Booking extends Component {
   state = {
     bookings: [],
@@ -53,6 +54,9 @@ class Booking extends Component {
                   </h4>
                   <h4 style={{ color: 'darkblue' }}>
                     <b>Time: </b> {booking.time}
+                  </h4>
+                  <h4 style={{ color: 'darkblue' }}>
+                    <b>Location: </b> {booking.location}
                   </h4>
                 </div>
               </Col>
