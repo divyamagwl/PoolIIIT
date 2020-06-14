@@ -10,7 +10,7 @@ class BookingSerializer (serializers.ModelSerializer):
 
     class Meta:
         model = Booking
-        fields = ['id', 'booking_url', 'date', 'time', 'user', 'user_url']
+        fields = ['id', 'booking_url', 'date', 'time', 'location', 'user', 'user_url']
 
     #Build URL for Booking instance
     def make_booking_url(self, obj):

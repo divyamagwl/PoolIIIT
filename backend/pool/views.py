@@ -41,22 +41,25 @@ class BookingFilteredListAPI(generics.ListAPIView):
         id = str(self.kwargs['pk']) #id is extracted from the url
         obj = Booking.objects.filter(id=id).first()
         #Converting to datetime object
-        obj_dt = datetime.combine(obj.date, obj.time)
+        try:
+            obj_dt = datetime.combine(obj.date, obj.time)
 
-        start = obj_dt - timedelta(hours=2)
-        end = obj_dt + timedelta(hours=2)
+            start = obj_dt - timedelta(hours=2)
+            end = obj_dt + timedelta(hours=2)
 
-        query_list = []
-        for curr_obj in Booking.objects.all().exclude(user=obj.user):
+            query_list = []
+            for curr_obj in Booking.objects.filter(location=obj.location).exclude(user=obj.user):
 
-            #Converting to datetime object
-            curr_obj_dt = datetime.combine(curr_obj.date, curr_obj.time)
+                #Converting to datetime object
+                curr_obj_dt = datetime.combine(curr_obj.date, curr_obj.time)
 
-            #Conditions to satisfy overalapping
-            if curr_obj_dt >= start and curr_obj_dt <= end:
-                query_list.append(curr_obj)
+                #Conditions to satisfy overlapping
+                if curr_obj_dt >= start and curr_obj_dt <= end:
+                    query_list.append(curr_obj)
 
-        return query_list
+            return query_list
+        except:
+            return
 
 class UserBookingListAPI(generics.ListAPIView):
     serializer_class = BookingSerializer
