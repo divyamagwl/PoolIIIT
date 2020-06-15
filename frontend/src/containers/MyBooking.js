@@ -7,6 +7,8 @@ import NotAuthorizedPage from '../components/NotAuthorizedPage';
 import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 import '../static/Booking.css';
+import UpdateBooking from '../components/UpdateBooking';
+import DeleteBooking from '../components/DeleteBooking';
 class MyBooking extends Component {
   state = {
     user: [],
@@ -57,12 +59,14 @@ class MyBooking extends Component {
   render() {
     let mybookings = null;
     const arr = this.state.user;
+
     mybookings = (
       <div>
         <Row>
           {arr.map((booking) => {
             return (
               <Col style={{ padding: '25px 25px 25px 25px' }}>
+                {console.log(booking)}
                 <div className='card'>
                   <h3>
                     <Link to={'/users/' + booking.user}>{booking.user}</Link>
@@ -77,6 +81,11 @@ class MyBooking extends Component {
                   <h4 style={{ color: 'darkblue' }}>
                     <b>Location: </b> {booking.location}
                   </h4>
+                  <div style={{ display: 'inline-flex', textAlign: 'center' }}>
+                    <UpdateBooking booking_url={booking.booking_url} />
+                    &nbsp;&nbsp;
+                    <DeleteBooking booking_url={booking.booking_url} />
+                  </div>
                 </div>
               </Col>
             );
