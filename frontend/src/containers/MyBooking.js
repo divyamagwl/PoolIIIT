@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import NotAuthorizedPage from '../components/NotAuthorizedPage';
 import { connect } from 'react-redux';
-import { Row, Col,Card } from 'antd';
+import { Row,Card } from 'antd';
 import '../static/Booking.css';
 import UpdateBooking from '../components/UpdateBooking';
 import DeleteBooking from '../components/DeleteBooking';
@@ -106,7 +106,7 @@ class MyBooking extends Component {
                    || (curr_date[2]===31 && date_int[2]===1)
                    || (date_int[2]===31 && curr_date[2]===1)
                    || (curr_date[2]===30 &&(curr_date[1]===4 || curr_date[1]===4  ||curr_date[1]===6 || curr_date[1]===9 || curr_date[1]===11) && date_int[2]===1)
-                   || (date_int[2]===30 &&(date_int[1]===4 || date_int[1]===4  ||date_int[1]===6 || date_int[1]===9 || date_int[1]===11)) && curr_date[2]===1 
+                   || (date_int[2]===30 &&(date_int[1]===4 || date_int[1]===4  ||date_int[1]===6 || date_int[1]===9 || date_int[1]===11) && curr_date[2]===1) 
                    || (curr_date[0]%4===0 && curr_date[0]%100!==0 && curr_date[1]===2 && curr_date[2]===29 && date_int[1]===3 && date_int[2]===1)
                    || (curr_date[0]%4===0 && curr_date[0]%100!==0 && date_int[1]===2 && date_int[2]===29 && curr_date[1]===3 && curr_date[2]===1)
                    || (curr_date[0]%4!==0 && curr_date[1]===2 && curr_date[2]===28 && date_int[1]===3 && date_int[2]===1)
@@ -144,7 +144,7 @@ class MyBooking extends Component {
             if(username.length===0){
               username.push(<p>There are no matches yet</p>);
             }
-            let title="Date:"+booking.date+"\n"+"Time:"+booking.time+"\n"+"Location:"+booking.location;
+            let title="Date:"+booking.date+"Time:"+booking.time+"Location:"+booking.location;
             return (
               <div>
               <Card title={title} style={{paddingLeft:'25px',paddingRight:"25px",paddingBottom:'25px'}}>
