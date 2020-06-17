@@ -35,7 +35,7 @@ class UpdateBookingModal extends Component {
     const values = {
       ...fieldsValue,
       date: fieldsValue['date'].format('YYYY-MM-DD'),
-      time: fieldsValue['time'].format('hh:mm a'),
+      time: fieldsValue['time'].format('HH:mm:00'),
       location: fieldsValue['location'],
     };
 

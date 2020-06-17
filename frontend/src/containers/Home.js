@@ -44,11 +44,11 @@ class Home extends Component {
                 
                 steps={[
                   'Pool With Us!',
-                  1500,
+                  3000,
                   'Ride With Us!',
-                  1500,
+                  3000,
                   'Collab With Us!',
-                  1500
+                  3000
                 ]}>
 
                 </Typical>
@@ -81,7 +81,7 @@ class Home extends Component {
                           All Bookings
                         </Button>
                       </Link>
-                      , &nbsp;&nbsp;
+                      &nbsp;&nbsp;
                       <Link to={'/booking/'+this.props.username}>
                         <Button
                           type='primary'
