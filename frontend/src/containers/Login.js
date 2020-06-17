@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button,Row,Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
-
+import { useSpring, animated } from 'react-spring'
 import { connect } from 'react-redux';
 
 import * as actions from '../actions/auth';
 import { ErrorHandler } from '../utils/ErrorHandler';
-import img from '../regimg.png';
+import '../static/Login.css'; 
+
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`
+const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`
+
+function Card() {
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  return (
+    <div class="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+      <animated.div class="card1" style={{ transform: props.xy.interpolate(trans1) }} />
+      <animated.div class="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      <animated.div class="card4" style={{ transform: props.xy.interpolate(trans4) }} />
+    </div>
+  )
+}
+
+
 class LoginForm extends Component {
   onFinish = (values) => {
     this.props.onAuth(values.username, values.password);
@@ -43,6 +61,9 @@ class LoginForm extends Component {
           textAlign: 'left',
         }}
       >
+         <Row>
+                <Col span={10}><Card/></Col>
+         </Row>
         <div
           style={{
             display: 'flex',
@@ -51,6 +72,7 @@ class LoginForm extends Component {
             marginLeft: '-15px',
           }}
         >
+          
           <div
             style={{
               flex: '0 0 50%',
@@ -63,20 +85,9 @@ class LoginForm extends Component {
               display: 'block !important',
             }}
           >
-            <img alt='login-theme' src={img} style={{width:'50%', height:"auto"}}/>
-            <h2
-              style={{
-                marginTop: '30px',
-                marginBottom: '15px',
-                marginLeft: '35px',
-                maxHeight: '400px',
-                maxWidth: '80%',
-                textAlign: 'center',
-                color: 'rgb(13, 28, 40)',
-              }}
-            >
-              Login to Start Booking!
-            </h2>
+              
+              
+
           </div>
           <div
             style={{
@@ -131,6 +142,7 @@ class LoginForm extends Component {
                   to='#'
                   style={{
                     fontSize: '16px',
+                    color:'black'
                   }}
                 >
                   {' '}
