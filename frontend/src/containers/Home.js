@@ -16,6 +16,7 @@ import {
   ScheduleOutlined,
 } from '@ant-design/icons';
 
+import Typical from 'react-typical'; 
 import ScrollToTopBtn from './ScrollToTop';
 
 class Home extends Component {
@@ -38,7 +39,19 @@ class Home extends Component {
               }}
             >
               <h1 style={{ fontSize: '4vw', whiteSpace: 'nowrap' }}>
-                Pool With Us!
+                <Typical 
+                loop={Infinity}
+                
+                steps={[
+                  'Pool With Us!',
+                  1500,
+                  'Ride With Us!',
+                  1500,
+                  'Collab With Us!',
+                  1500
+                ]}>
+
+                </Typical>
               </h1>
               <p
                 style={{
@@ -187,6 +200,7 @@ class Home extends Component {
                   maxHeight: '7vw',
                 }}
               >
+                
                 Car pooling allows you to share the cost of the ride, cutting
                 your expenses by nearly 50%.
                 <br />
