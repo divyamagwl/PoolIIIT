@@ -35,6 +35,9 @@ class MyBooking extends Component {
         });
         console.log(err);
       });
+
+    var elmnt = document.getElementById('similar');
+    elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
   componentDidMount() {
     const uname = this.props.match.params.uname;
@@ -194,7 +197,9 @@ class MyBooking extends Component {
             </h1>
             <div className='container'>{mybookings}</div>
 
-            <div className='container'>{otherbookings}</div>
+            <div className='container' id='similar'>
+              {otherbookings}
+            </div>
           </div>
         )}
       </div>
