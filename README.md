@@ -95,6 +95,7 @@ Displays all the bookings of a particular user.
 ### Other Details
 
 Database used - Sqlite3
+**You can find Pool-IIIT mobile app [here](https://github.com/jaggu21/PoolIIIT_mobileApp)**
 
 ## 🤝 Contributing
 
