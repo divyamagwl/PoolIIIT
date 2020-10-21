@@ -9,6 +9,7 @@ import { Row, Col, Button } from 'antd';
 import '../static/Booking.css';
 import UpdateBooking from '../components/UpdateBooking';
 import DeleteBooking from '../components/DeleteBooking';
+import { Card } from 'react-bootstrap';
 
 class MyBooking extends Component {
   state = {
@@ -40,6 +41,7 @@ class MyBooking extends Component {
     elmnt.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
   componentDidMount() {
+    window.scrollTo(0, 0);
     const uname = this.props.match.params.uname;
     console.log(uname);
     axios
@@ -67,36 +69,50 @@ class MyBooking extends Component {
           {arr.map((booking) => {
             return (
               <Col style={{ padding: '25px 25px 25px 25px' }}>
-                <div className='card'>
-                  <h3>
-                    <Link to={'/users/' + booking.user}>{booking.user}</Link>
-                  </h3>
-                  <h4 style={{ color: 'darkblue' }}>
-                    <b>Date: </b>
-                    {booking.date}
-                  </h4>
-                  <h4 style={{ color: 'darkblue' }}>
-                    <b>Time: </b> {booking.time}
-                  </h4>
-                  <h4 style={{ color: 'darkblue' }}>
-                    <b>Location: </b> {booking.location}
-                  </h4>
-                  <div style={{ display: 'inline-flex', textAlign: 'center' }}>
-                    <UpdateBooking booking_url={booking.booking_url} />
-                    &nbsp;&nbsp;
-                    <DeleteBooking booking_url={booking.booking_url} />
-                    &nbsp;&nbsp;
-                  </div>
-                  <br />
-                  <Button
-                    type='primary'
-                    size='large'
-                    style={{ marginTop: '10px' }}
-                    onClick={() => this.FilteredDisplay(booking)}
+                <Card
+                  border='primary'
+                  bg='light'
+                  style={{ maxWidth: '20rem', maxHeight: '20rem' }}
+                >
+                  <Card.Body
+                    style={{ paddingTop: '0px', paddingBottom: '0px' }}
                   >
-                    View Similar
-                  </Button>
-                </div>
+                    <Card.Title>
+                      <Link to={'/users/' + booking.user}>{booking.user}</Link>
+                    </Card.Title>
+                    <Card.Text style={{ color: 'darkblue' }}>
+                      <b>Date: </b>
+                      {booking.date}
+                    </Card.Text>
+                    <Card.Text style={{ color: 'darkblue' }}>
+                      <b>Time: </b> {booking.time}
+                    </Card.Text>
+                    <Card.Text style={{ color: 'darkblue' }}>
+                      <b>Location: </b> {booking.location}
+                    </Card.Text>
+                    <div
+                      style={{ display: 'inline-flex', textAlign: 'center' }}
+                    >
+                      <UpdateBooking booking_url={booking.booking_url} />
+                      &nbsp;&nbsp;
+                      <DeleteBooking booking_url={booking.booking_url} />
+                      &nbsp;&nbsp;
+                    </div>
+                    {/* <br /> */}
+                    <Button
+                      type='primary'
+                      size='large'
+                      style={{
+                        marginTop: '10px',
+                        marginBottom: '0',
+                        paddingBottom: '0',
+                      }}
+                      onClick={() => this.FilteredDisplay(booking)}
+                    >
+                      View Similar
+                    </Button>
+                  </Card.Body>
+                </Card>
               </Col>
             );
           })}
@@ -134,23 +150,29 @@ class MyBooking extends Component {
               {otherarr.map((booking) => {
                 return (
                   <Col style={{ padding: '25px 25px 25px 25px' }}>
-                    <div className='card'>
-                      <h3>
-                        <Link to={'/users/' + booking.user}>
-                          {booking.user}
-                        </Link>
-                      </h3>
-                      <h4 style={{ color: 'darkblue' }}>
-                        <b>Date: </b>
-                        {booking.date}
-                      </h4>
-                      <h4 style={{ color: 'darkblue' }}>
-                        <b>Time: </b> {booking.time}
-                      </h4>
-                      <h4 style={{ color: 'darkblue' }}>
-                        <b>Location: </b> {booking.location}
-                      </h4>
-                    </div>
+                    <Card
+                      border='primary'
+                      bg='light'
+                      style={{ width: '18rem' }}
+                    >
+                      <Card.Body>
+                        <Card.Title>
+                          <Link to={'/users/' + booking.user}>
+                            {booking.user}
+                          </Link>
+                        </Card.Title>
+                        <Card.Text style={{ color: 'darkblue' }}>
+                          <b>Date: </b>
+                          {booking.date}
+                        </Card.Text>
+                        <Card.Text style={{ color: 'darkblue' }}>
+                          <b>Time: </b> {booking.time}
+                        </Card.Text>
+                        <Card.Text style={{ color: 'darkblue' }}>
+                          <b>Location: </b> {booking.location}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
                   </Col>
                 );
               })}

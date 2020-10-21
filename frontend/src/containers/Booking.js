@@ -9,8 +9,8 @@ import { getConfig } from '../utils/getConfig';
 import { ErrorHandler } from '../utils/ErrorHandler';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Row, Col } from 'antd';
-
+import { CardColumns } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 class Booking extends Component {
   state = {
     bookings: [],
@@ -33,6 +33,9 @@ class Booking extends Component {
           loading: false,
         });
       });
+    // window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+    // };
   }
 
   render() {
@@ -40,29 +43,29 @@ class Booking extends Component {
     const arr = this.state.bookings;
     bookings = (
       <div>
-        <Row>
+        <CardColumns>
           {arr.map((booking) => {
             return (
-              <Col style={{ padding: '25px 25px 25px 25px' }}>
-                <div className='card'>
-                  <h3>
+              <Card border='primary' bg='light' style={{ width: '19rem' }}>
+                <Card.Body>
+                  <Card.Title>
                     <Link to={'/users/' + booking.user}>{booking.user}</Link>
-                  </h3>
-                  <h4 style={{ color: 'darkblue' }}>
+                  </Card.Title>
+                  <Card.Text style={{ color: 'darkblue' }}>
                     <b>Date: </b>
                     {booking.date}
-                  </h4>
-                  <h4 style={{ color: 'darkblue' }}>
+                  </Card.Text>
+                  <Card.Text style={{ color: 'darkblue' }}>
                     <b>Time: </b> {booking.time}
-                  </h4>
-                  <h4 style={{ color: 'darkblue' }}>
+                  </Card.Text>
+                  <Card.Text style={{ color: 'darkblue' }}>
                     <b>Location: </b> {booking.location}
-                  </h4>
-                </div>
-              </Col>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             );
           })}
-        </Row>
+        </CardColumns>
       </div>
     );
     return (
