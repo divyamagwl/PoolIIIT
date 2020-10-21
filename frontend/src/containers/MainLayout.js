@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import { Layout, Menu, Affix } from 'antd';
+import { Affix } from 'antd';
 import { connect } from 'react-redux';
 import * as actions from '../actions/auth';
-
-import '../static/Navbar.css';
+import { Navbar, Nav, Form, Button, Row, Col } from 'react-bootstrap';
 import '../static/MainLayout.css';
 import '../static/Footer.css';
-
 import {
-  FacebookFilled,
-  GithubFilled,
-  LinkedinFilled,
-} from '@ant-design/icons';
+  faGithub,
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
@@ -24,201 +23,264 @@ import {
   faPlaneDeparture,
   faPhone,
   faEnvelope,
-  faSignOutAlt
+  faAddressBook,
+  faSignOutAlt,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../logo.png';
 
-import ScrollToTopBtn from './ScrollToTop'; 
-
-const { Header } = Layout;
-
-const Location = withRouter((props) => {
-  const { location, logout, isAuthenticated, username } = props;
-
-  return (
-    <Menu
-      theme='dark'
-      mode='horizontal'
-      selectedKeys={[location.pathname]}
-      style={{ lineHeight: '70px', textAlign: 'right' }}
-      className='hamburger'
-    >
-      <Menu.Item key='/' className='nav-links'>
-         <Link to='/'> <FontAwesomeIcon icon={faHome} />Home</Link>
-      </Menu.Item>
-      {isAuthenticated
-        ? [
-            <Menu.Item key='/booking' className='nav-links'>
-              <Link to='/booking'> <FontAwesomeIcon icon={faTicketAlt} />Bookings</Link>
-            </Menu.Item>,
-            <Menu.Item key={'/users/' + username} className='nav-links'>
-              <Link to={'/users/' + username}><FontAwesomeIcon icon={faUsers} />My Profile</Link>
-            </Menu.Item>,
-            <Menu.Item key='/logout' onClick={logout} className='nav-links'>
-              <Link to='/'><FontAwesomeIcon icon={faSignOutAlt} />Logout</Link>
-            </Menu.Item>,
-          ]
-        : [
-            <Menu.Item key='/login' className='nav-links'>
-               <Link to='/login'><FontAwesomeIcon icon={faSignInAlt} />Login</Link>
-            </Menu.Item>,
-            <Menu.Item key='/register' className='nav-links'>
-              <Link to='/register'><FontAwesomeIcon icon={faUserPlus} />Register</Link>
-            </Menu.Item>,
-          ]}
-    </Menu>
-  );
-});
+import ScrollToTopBtn from './ScrollToTop';
 
 class MainLayout extends Component {
   render() {
+    const { logout, isAuthenticated, username } = this.props;
     return (
       <div>
         <div>
           <Affix offsetTop={0}>
-            <Header>
-              <div className='logo'>
-                <Link to='/' style={{ color: 'inherit' }}>
-                  <h2 style={{ color: '#7acdff' }}>
-                    PoolIIIT
-                    <img
-                      src={logo}
-                      alt='Logo'
-                      style={{
-                        color: 'green',
-                        paddingBottom: '20px',
-                        height: '64px',
+            <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+              <Navbar.Brand href='/' style={{ color: '#7acdff' }}>
+                <img
+                  alt=''
+                  src={logo}
+                  width='30'
+                  height='30'
+                  className='d-inline-block align-top'
+                  // style={{ paddingBottom: '5px' }}
+                />{' '}
+                POOLIIIT
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+              <Navbar.Collapse id='responsive-navbar-nav'>
+                <Nav className='mr-auto'></Nav>
+                <Nav>
+                  <Nav.Link eventKey='1'>
+                    <Link
+                      to='/'
+                      onClick={() => {
+                        window.scroll({
+                          top: 0,
+                          left: 0,
+                          behavior: 'smooth',
+                        });
                       }}
-                    ></img>
-                  </h2>
-                </Link>
-              </div>
-              <Location {...this.props} />
-            </Header>
+                    >
+                      <FontAwesomeIcon icon={faHome} />
+                      Home
+                    </Link>
+                  </Nav.Link>
+                  {isAuthenticated
+                    ? [
+                        <Nav.Link eventKey='2'>
+                          <Link
+                            to='/booking'
+                            onClick={() => {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
+                            }}
+                          >
+                            {' '}
+                            <FontAwesomeIcon icon={faTicketAlt} />
+                            Bookings
+                          </Link>
+                        </Nav.Link>,
+                        <Nav.Link eventKey='3'>
+                          <Link
+                            to={'/users/' + username}
+                            onClick={() => {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faUser} />
+                            My Profile
+                          </Link>
+                        </Nav.Link>,
+                        <Nav.Link eventKey='4' onClick={logout}>
+                          <Link
+                            to='/'
+                            onClick={() => {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faSignOutAlt} />
+                            Logout
+                          </Link>
+                        </Nav.Link>,
+                      ]
+                    : [
+                        <Nav.Link eventKey='5'>
+                          <Link
+                            to='/login'
+                            onClick={() => {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faSignInAlt} />
+                            Login
+                          </Link>
+                        </Nav.Link>,
+                        <Nav.Link eventKey='6'>
+                          <Link
+                            to='/register'
+                            onClick={() => {
+                              window.scroll({
+                                top: 0,
+                                left: 0,
+                                behavior: 'smooth',
+                              });
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faUserPlus} />
+                            Register
+                          </Link>
+                        </Nav.Link>,
+                      ]}
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
           </Affix>
 
           <div style={{ minHeight: '84vh', color: '#7acdff' }}>
             {this.props.children}
           </div>
         </div>
+        <div>
+          <footer className='site-footer'>
+            <div className='container'>
+              <div className='row'>
+                <div className='col-sm-12 col-md-4'>
+                  <h6>
+                    About POOLIIIT{' '}
+                    <FontAwesomeIcon
+                      icon={faPlaneDeparture}
+                      transform='shrink-3'
+                    />
+                  </h6>
+                  <p className='text'>
+                    We are a group of young enthusiasts who are part of the
+                    developers club of International Institute of Information
+                    Technology Bangalore,named Zense.We have made this simple
+                    project to make pooling easier.
+                  </p>
+                </div>
 
-        {/*Footer*/}
-        <div className='footer'>
-          <div className='footer-content'>
-            {/*About*/}
+                <div className='col-md-4 col-sm-6 col-xs-12'>
+                  <h6>
+                    Social Links{' '}
+                    <FontAwesomeIcon
+                      icon={faAddressBook}
+                      transform='shrink-3'
+                    />
+                  </h6>
+                  <span
+                    style={{
+                      color: 'white',
+                    }}
+                  >
+                    &nbsp;
+                    <FontAwesomeIcon icon={faPhone} />
+                    &nbsp;{' '}
+                    <span style={{ color: '#737373' }}>
+                      {' '}
+                      <a href='#'>123-456-789</a>
+                    </span>
+                  </span>
+                  <br />
+                  <br />
+                  <span style={{ color: 'white' }}>
+                    &nbsp;
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    &nbsp;
+                    <span style={{ color: '#737373' }}>
+                      <a href='#'> zense@iiitb.org</a>
+                    </span>
+                  </span>
+                  <br />
+                  <br />
+                  <ul className='social-icons'>
+                    <li>
+                      <a className='facebook' href='#'>
+                        <FontAwesomeIcon icon={faFacebook} size='2x' />
+                      </a>
+                    </li>
+                    <li>
+                      <a className='twitter' href='#'>
+                        <FontAwesomeIcon icon={faTwitter} size='2x' />
+                      </a>
+                    </li>
+                    <li>
+                      <a className='dribbble' href='#'>
+                        <FontAwesomeIcon icon={faGithub} size='2x' />
+                      </a>
+                    </li>
+                    <li>
+                      <a className='linkedin' href='#'>
+                        <FontAwesomeIcon icon={faLinkedin} size='2x' />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
-            <div
-              className='footer-section about'
-              style={{ flex: '0 0 30%', marginLeft: '10px' }}
-            >
-              <h1>
-                <FontAwesomeIcon icon={faPlaneDeparture} transform='shrink-3' />
-                <span style={{ color: '#046687', fontSize: '40px' }}>
-                  {' '}
-                  Pool
-                </span>
-                <span style={{ fontSize: '40px' }}>IIIT</span>
-              </h1>
-              &nbsp;
-              <p style={{ fontSize: '20px' }}>
-                Now let's save money
-                <br />
-                and time.
-              </p>
-              <div className='contact'>
-                <span>
-                  &nbsp;
-                  <FontAwesomeIcon icon={faPhone} />
-                  &nbsp; 123-456-789
-                </span>
-                <span>
-                  &nbsp;
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  &nbsp;zense@iiitb.org
-                </span>
+                <div className='col-xs-6 col-md-3'>
+                  <h6>Feedback</h6>
+                  <Form>
+                    <Form.Group as={Row} controlId='formPlaintextEmail'>
+                      <Form.Label column sm='2'>
+                        Email
+                      </Form.Label>
+                      <Col sm='10'>
+                        <Form.Control type='email' placeholder='Enter email' />
+                      </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} controlId='formBasicTextArea'>
+                      <Form.Label column sm='2'>
+                        Input
+                      </Form.Label>
+                      <Col sm='10'>
+                        <Form.Control
+                          as='textarea'
+                          rows='3'
+                          placeholder='Your Feedback'
+                        />
+                      </Col>
+                    </Form.Group>
+                    <Button variant='secondary' type='submit'>
+                      Submit
+                    </Button>
+                  </Form>
+                </div>
               </div>
-              <div>
-                &nbsp;
-                <a href='/'>
-                  <FacebookFilled style={{ fontSize: 40 }} />
-                </a>
-                &nbsp;
-                <a href='https://github.com/zense'>
-                  <GithubFilled style={{ fontSize: 40, color: '#ffffff' }} />
-                </a>
-                &nbsp;
-                <a href='/'>
-                  <LinkedinFilled style={{ fontSize: 40 }} />
-                </a>
+              {/* <hr> */}
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div className='col-md-12 col-sm-6 col-xs-12'>
+                <p className='copyright-text'>
+                  Copyright &copy; 2020 All Rights Reserved by
+                  <a href='https://zense.co.in/'> Zense</a>.
+                </p>
               </div>
-            </div>
-
-            {/*End of About*/}
-            {/*Links*/}
-            <div
-              className='footer-section links'
-              style={{
-                flex: '0 0 30%',
-                marginLeft: '20px',
-              }}
-            >
               <br />
-              <h1>
-                <span style={{ color: '#046687' }}>Quick</span> Links
-              </h1>
-              <br></br>
-              <ul>
-                <a href='/'>
-                  <li>Events</li>
-                </a>
-                <a href='/'>
-                  <li>Terms and Conditions</li>
-                </a>
-                <a href='https://github.com/divyamagwl/PoolIIIT'>
-                  <li>Contribute</li>
-                </a>
-              </ul>
             </div>
-            {/*End of Links*/}
-            {/*Start of Contact*/}
-            <div
-              className='footer-section contact-form'
-              style={{
-                flex: '0 0 30%',
-                marginLeft: '10px',
-              }}
-            >
-              <br />
-              <h1>
-                <span style={{ color: '#046687' }}>Contact</span> Us
-              </h1>
-              <br></br>
-              <form action='index.html' method='post'>
-                <input
-                  type='email'
-                  name='email'
-                  className='text-input contact-input'
-                  placeholder='Enter Your Email Address'
-                ></input>
-
-                <textarea
-                  name='message'
-                  className='text-input contact-input'
-                  placeholder='Please leave us a Feedback'
-                ></textarea>
-                <button type='submit' className='btn btn-big contact-btn'>
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  &nbsp;Send
-                </button>
-              </form>
-            </div>
-            {/*End of Contact*/}
-          </div>
-          <div className='footer-bottom'>&copy;Designed by Zense| IIITB</div>
+          </footer>
         </div>
-        <ScrollToTopBtn/>
       </div>
+      // <ScrollToTopBtn />
     );
   }
 }
